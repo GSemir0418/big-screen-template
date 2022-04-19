@@ -1,15 +1,15 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import vitePluginImp from "vite-plugin-imp";
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import vitePluginImp from 'vite-plugin-imp'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
     proxy: {
-      "/api": {
-        target: "http://10.30.20.203:8080",
+      '/api': {
+        target: 'http://10.30.20.203:8080',
         // changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
+        rewrite: path => path.replace(/^\/api/, ''),
       },
     },
   },
@@ -19,9 +19,9 @@ export default defineConfig({
       optimize: true,
       libList: [
         {
-          libName: "antd",
-          libDirectory: "es",
-          style: (name) => `antd/es/${name}/style`,
+          libName: 'antd',
+          libDirectory: 'es',
+          style: name => `antd/es/${name}/style`,
         },
       ],
     }),
@@ -29,8 +29,9 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       less: {
-        javascriptEnabled: true, // 支持内联 JavaScript
+        // 支持内联 JavaScript
+        javascriptEnabled: true,
       },
     },
   },
-});
+})

@@ -1,0 +1,9 @@
+/**
+ * 处理less中需要转换像素值的方法
+ * @param name 属性名称
+ * @param px 设计图上的像素值
+ * @returns 处理后的属性及rem值
+ */
+.pxToRem(@name, @px) {
+    @{name}: unit((@px / 2420 * 100), rem)
+}

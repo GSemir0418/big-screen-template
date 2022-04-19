@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>供应链控制塔大屏</title>
     <style>
       @font-face {
         font-family: Zi;
@@ -14,9 +14,27 @@
         font-style: normal;
       }
     </style>
+    <script>
+      // 获取设备宽高
+      const clientWidth = document.documentElement.clientWidth
+      const clientHeight = document.documentElement.clientHeight
+      // 根据屏幕比例，计算实际宽高
+      window.pageWidth = clientWidth / clientHeight > 16 / 9 
+        ? clientHeight * (16 / 9) 
+        : clientWidth
+      const pageHeight = pageWidth / (16/9)
+      // 将1rem规定为实际宽度的1/100，方便后续内部尺寸等比例换算
+      document.write(`<style>html{font-size:${pageWidth / 100}px}</style>`)
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      root.style.height = pageHeight + 'px'
+      root.style.width = pageWidth + 'px'
+      // 保证root上下居中
+      root.style.marginTop = (clientHeight - pageHeight) / 2 + 'px'
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
