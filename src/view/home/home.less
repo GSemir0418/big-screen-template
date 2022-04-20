@@ -16,11 +16,49 @@
         // main中采取grid布局
         display: grid;
         grid-template:
-            "box1 box2 box3" 940fr / 1fr 2.5fr 1fr;
+            "box1 box2 box3"940fr / 1fr 2.5fr 1fr;
+        grid-gap: 0.5rem;
 
         >.col1 {
             grid-area: box1;
             // background: pink;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            padding: 0 0 0.5rem 0.5rem;
+
+            .chart1 {
+                .pxToRem(height, 200);
+                width: 100%;
+                background-image: url(../../../assets/img/border.png);
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+            .chart2 {
+                .pxToRem(height, 200);
+                width: 100%;
+                background-image: url(../../../assets/img/border.png);
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+            .chart3 {
+                .pxToRem(height, 200);
+                width: 100%;
+                background-image: url(../../../assets/img/border.png);
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+            .chart4 {
+                .pxToRem(height, 230);
+                width: 100%;
+                background-image: url(../../../assets/img/border.png);
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
         }
 
         >.col2 {
