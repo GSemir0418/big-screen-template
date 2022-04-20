@@ -3,4 +3,4 @@
  * @param p 设计图上的像素值
  * @returns 处理后的rem值
  */
-export const pxToRem = (px: number) => (px / 2420) * (window as any).pageWidth
+export const pxToRem = (px: number) => (px / 1920) * (window as any).pageWidth
