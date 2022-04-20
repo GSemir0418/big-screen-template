@@ -1,3 +1,5 @@
+@import './utils/shared.less';
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -32,14 +34,19 @@ body {
 #root {
   // 保证root左右居中
   margin: 0 auto;
-  background: rgba(0, 0, 160, 0.671);
+  background-image: url(../assets/img/bg.png);
+  background-position-x: center;
+  .pxToRem(background-position-y, 400);
+  background-repeat: no-repeat;
+  // flex布局，目的是使内部App元素自动占满root
   display: flex;
   flex-direction: column;
 }
 
 .App {
-  height: 100%;
+  // height: 100%;
   flex: 1;
+  // flex布局，目的是使内部Home元素自动占满root
   display: flex;
   flex-direction: column;
 }
