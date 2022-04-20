@@ -1,6 +1,37 @@
 @import '../../utils/shared.less';
 
-.title {
-    color: white;
-    .pxToRem(font-size, 80);
+.home {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    header {
+        .pxToRem(height, 140);
+        .pxToRem(font-size, 60);
+        background-size: cover;
+    }
+
+    main {
+        flex: 1;
+        // main中采取grid布局
+        display: grid;
+        grid-template:
+            "box1 box2 box3" 940fr / 1fr 2.5fr 1fr;
+
+        >.col1 {
+            grid-area: box1;
+            // background: pink;
+        }
+
+        >.col2 {
+            grid-area: box2;
+            // background: lightblue;
+        }
+
+        >.col3 {
+            grid-area: box3;
+            // background: lightyellow;
+        }
+
+    }
 }

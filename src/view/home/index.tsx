@@ -1,11 +1,15 @@
 import './home.less'
+import headerBg from '../../../assets/img/header.png'
 const Home = () => {
   return (
-    <>
-      <header className="title">题目</header>
-      <main className="title">内部分区</main>
-      <footer className="title">路由切换</footer>
-    </>
+    <div className="home">
+      <header style={{ backgroundImage: `url(${headerBg})` }}>标题</header>
+      <main>
+        <section className="col1"></section>
+        <section className="col2"></section>
+        <section className="col3"></section>
+      </main>
+    </div>
   )
 }
 export default Home
