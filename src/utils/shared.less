@@ -7,3 +7,14 @@
 .pxToRem(@name, @px) {
     @{name}: unit((@px / 1920 * 100), rem)
 }
+
+/**
+ * section的公共样式
+ */
+.section {
+    .pxToRem(height, 200);
+    width: 100%;
+    background-image: url(../../assets/img/border.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
