@@ -6,6 +6,11 @@ import JiangXi from '../../../assets/jiangxi.json'
 import { pxToRem } from '../../utils/px'
 import titleIcon from '../../../assets/img/titleIcon.png'
 import useEcharts from '../../hooks/useEcharts'
+import truck from '../../../assets/img/truck.png'
+import lineUp from '../../../assets/img/lineUp.png'
+import lineDown from '../../../assets/img/lineDown.png'
+import borderUp from '../../../assets/img/borderUp.png'
+import borderDown from '../../../assets/img/borderDown.png'
 const Home = () => {
   const chartRef = useRef(null)
   const chart1Ref = useRef()
@@ -24,9 +29,12 @@ const Home = () => {
       },
     },
     legend: {
-      data: ['指标1', '指标2'],
+      data: [
+        { name: '指标1', icon: 'rect' },
+        { name: '指标2', icon: 'rect' },
+      ],
       right: 0,
-      top: `${pxToRem(10)}rem`,
+      top: `${pxToRem(18)}rem`,
       padding: 0,
       textStyle: {
         color: 'white',
@@ -109,6 +117,95 @@ const Home = () => {
     ],
   }
   useEcharts(chart1Ref, option1)
+  const chart3Ref = useRef()
+  const option3 = {
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true,
+    },
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'cross',
+        crossStyle: {
+          color: '#999',
+        },
+      },
+    },
+    legend: {
+      data: ['系列一', '系列二'],
+      right: 0,
+      top: `${pxToRem(18)}rem`,
+      padding: 0,
+      textStyle: {
+        color: 'white',
+      },
+    },
+    xAxis: [
+      {
+        type: 'category',
+        data: ['工厂1', '工厂2', '工厂3', '工厂4'],
+        axisPointer: {
+          type: 'shadow',
+        },
+      },
+    ],
+    yAxis: [
+      {
+        type: 'value',
+        name: '单位',
+        splitLine: {
+          lineStyle: {
+            type: 'dashed',
+            width: 1,
+            dashOffset: 200,
+            opacity: 0.1,
+          },
+        },
+      },
+    ],
+    series: [
+      {
+        name: '系列一',
+        type: 'bar',
+        barWidth: '10%',
+        barGap: '100%',
+        tooltip: {
+          valueFormatter: (value: string) => {
+            return `${value}ml`
+          },
+        },
+        data: [2.0, 4.9, 7.0, 23.2],
+        itemStyle: {
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 1, color: '#071e3f' },
+            { offset: 0, color: '#42A8FE' },
+          ]),
+        },
+      },
+      {
+        name: '系列二',
+        type: 'bar',
+        barWidth: '10%',
+        tooltip: {
+          valueFormatter: (value: string) => {
+            return `${value}ml`
+          },
+        },
+        data: [2.6, 5.9, 9.0, 26.4],
+        itemStyle: {
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: '#F08885' },
+            { offset: 1, color: '#071e3f' },
+          ]),
+        },
+      },
+    ],
+  }
+  useEcharts(chart3Ref, option3)
+
   useEffect(() => {
     const myChart = echarts.init(chartRef.current as unknown as HTMLDivElement)
     echarts.registerMap('CN', JiangXi as any)
@@ -252,13 +349,31 @@ const Home = () => {
           <div className="chart">
             <div className="chart-title">
               <img className="chart-title-icon" src={titleIcon} />
-              Chart Title
+              Chart1 Title
             </div>
             <div ref={chart1Ref} style={{ height: '100%' }} />
           </div>
           <div className="chart"></div>
-          <div className="chart"></div>
-          <div className="chart4"></div>
+          <div className="chart">
+            <div className="chart-title">
+              <img className="chart-title-icon" src={titleIcon} />
+              Chart3 Title
+            </div>
+            <div ref={chart3Ref} style={{ height: '100%' }} />
+          </div>
+          <div className="chart4">
+            <div className="chart-title">
+              <img className="chart-title-icon" src={titleIcon} />
+              Chart4 Title
+            </div>
+            <img className="truck" src={truck} alt="" />
+            <img className="line-up" src={lineUp} alt="" />
+            <img className="line-down" src={lineDown} alt="" />
+            <img className="border-up" src={borderUp} alt="" />
+            <img className="border-down" src={borderDown} alt="" />
+            <div className="data-1">数据1</div>
+            <div className="data-2">数据2</div>
+          </div>
         </section>
         <section className="col2">
           <div
