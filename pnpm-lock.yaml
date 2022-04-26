@@ -14,6 +14,8 @@ specifiers:
   echarts: ^5.3.2
   eslint: ^8.13.0
   eslint-plugin-react: ^7.29.4
+  highcharts: ^10.0.0
+  highcharts-react-official: ^3.1.0
   husky: ^7.0.4
   less: ^4.1.2
   lint-staged: ^12.3.8
@@ -32,6 +34,8 @@ dependencies:
   antd: registry.npmmirror.com/antd/4.19.5_react-dom@17.0.2+react@17.0.2
   axios: registry.npmmirror.com/axios/0.26.1
   echarts: 5.3.2
+  highcharts: 10.0.0
+  highcharts-react-official: 3.1.0_highcharts@10.0.0+react@17.0.2
   mobx: registry.npmmirror.com/mobx/6.5.0
   mobx-react: registry.npmmirror.com/mobx-react/7.3.0_3b110ddd052df537d55bc762cdd4d0b8
   react: registry.npmmirror.com/react/17.0.2
@@ -273,6 +277,20 @@ packages:
     resolution: {integrity: sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==}
     requiresBuild: true
     dev: true
+
+  /highcharts-react-official/3.1.0_highcharts@10.0.0+react@17.0.2:
+    resolution: {integrity: sha512-CkWJHrVMOc6CT8KFu1dR+a0w5OxCVKKgZUNWtEi5TmR0xqBDIDe+RyM652MAN/jBYppxMo6TCUVlRObCyWAn0Q==}
+    peerDependencies:
+      highcharts: '>=6.0.0'
+      react: '>=16.8.0'
+    dependencies:
+      highcharts: 10.0.0
+      react: registry.npmmirror.com/react/17.0.2
+    dev: false
+
+  /highcharts/10.0.0:
+    resolution: {integrity: sha512-a14PrTraVaoSNyaRPhLF/jJ3/09rJwfUZedLgZOkzozGz4K/H8WtWNJtUZt/tc5QiJkaZHw4YX7vvuO98s+EoA==}
+    dev: false
 
   /history/5.3.0:
     resolution: {integrity: sha512-ZqaKwjjrAYUYfLG+htGaIIZ4nioX2L70ZUMIFysS3xvBsSG4x/n1V6TXV3N8ZYNuFGlDirFg32T7B6WOUPDYcQ==}

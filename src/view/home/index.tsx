@@ -11,9 +11,11 @@ import lineUp from '../../../assets/img/lineUp.png'
 import lineDown from '../../../assets/img/lineDown.png'
 import borderUp from '../../../assets/img/borderUp.png'
 import borderDown from '../../../assets/img/borderDown.png'
+import useHighCharts3d from '../../hooks/useHighCharts3d'
 const Home = () => {
-  const chartRef = useRef(null)
-  const chart1Ref = useRef()
+  const chartRef = useRef<HTMLDivElement | null>(null)
+  const chart1Ref = useRef<HTMLDivElement | null>(null)
+  const chart3Ref = useRef<HTMLDivElement | null>(null)
   const option1 = {
     color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
     title: {
@@ -117,7 +119,6 @@ const Home = () => {
     ],
   }
   useEcharts(chart1Ref, option1)
-  const chart3Ref = useRef()
   const option3 = {
     grid: {
       left: '3%',
@@ -250,7 +251,7 @@ const Home = () => {
             borderColor: '#247094',
             borderWidth: 1,
             borderType: 'solid',
-            opacity: 0.7,
+            opacity: 0.6,
             shadowBlur: 1,
             shadowColor: '#082243',
             shadowOffsetX: 5,
@@ -283,7 +284,7 @@ const Home = () => {
           },
           itemStyle: {
             normal: {
-              opacity: 0.7,
+              opacity: 0.6,
               areaColor: '#082243',
               borderColor: '#39B3ED',
               borderWidth: '1',
@@ -341,6 +342,51 @@ const Home = () => {
       // ],
     })
   })
+  const options3d = {
+    chart: {
+      type: 'pie',
+      options3d: {
+        enabled: true,
+        alpha: 65,
+      },
+      backgroundColor: 'transparent',
+    },
+    title: {
+      text: undefined,
+    },
+    // 禁用版权信息
+    credits: {
+      enabled: false,
+    },
+    plotOptions: {
+      pie: {
+        innerSize: 200,
+        depth: 60,
+        opacity: 0.8,
+        slicedOffset: 20,
+      },
+    },
+    series: [
+      {
+        name: '货物金额',
+        dataLabels: { enabled: false },
+        data: [
+          {
+            name: 'test1',
+            y: 30,
+            sliced: true,
+            color: 'red',
+          },
+          {
+            name: 'others',
+            y: 70,
+            color: 'white',
+          },
+        ],
+      },
+    ],
+  }
+  const chart3d = useHighCharts3d(options3d)
   return (
     <div className="home">
       <header style={{ backgroundImage: `url(${headerBg})` }} />
@@ -394,7 +440,25 @@ const Home = () => {
         </section>
         <section className="col3">
           <div className="chart"></div>
-          <div className="chart"></div>
+          <div className="chart">
+            <div className="chart-title">
+              <img className="chart-title-icon" src={titleIcon} />
+              Chart6 Title
+            </div>
+            <div
+              style={{
+                background: 'red',
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+              }}
+            >
+              <div>{chart3d}</div>
+              <div>{chart3d}</div>
+            </div>
+          </div>
           <div className="chart"></div>
           <div className="chart4"></div>
         </section>
