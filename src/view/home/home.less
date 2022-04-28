@@ -16,12 +16,11 @@
         // main中采取grid布局
         display: grid;
         grid-template:
-            "box1 box2 box3"940fr / 1fr 2.5fr 1fr;
+            "box1 box2 box3" 940fr / 1fr 2.5fr 1fr;
         grid-gap: 0.5rem;
 
         >.col1 {
             grid-area: box1;
-            // background: pink;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -170,13 +169,41 @@
                     .pxToRem(padding, 12);
                     .pxToRem(font-size, 16);
 
-                    >table {
+                    table {
                         width: 100%;
+                        .pxToRem(height, 150);
+                        .pxToRem(margin-top, 10);
                         // td定宽
-                        table-layout: fixed;
-                        text-align: center;
+                        // table-layout: fixed;
+                        // text-align: center;
                         // 表格行间距
-                        .pxToRem(border-spacing, 12)
+                        .pxToRem(border-spacing, 12);
+                        //table wrapper
+                        display: block;
+                        overflow-y: scroll;
+                        -ms-overflow-style: none;
+                    }
+
+                    // 去掉滚动条
+                    table::-webkit-scrollbar {
+                        display: none;
+                    }
+
+                    // tbody样式
+                    .child {
+                        display: block;
+                        width: 100%;
+                    }
+
+                    .child tr {
+                        display: flex;
+                        .pxToRem(margin-top, 8);
+                        width: 100%;
+
+                        >td {
+                            flex: 1;
+                            text-align: center
+                        }
                     }
                 }
             }
@@ -255,7 +282,7 @@
                     .pxToRem(margin, 10);
                     display: grid;
                     grid-template:
-                        "sec1 sec2"1fr "sec3 sec4"1fr / 1fr 1fr;
+                        "sec1 sec2" 1fr "sec3 sec4" 1fr / 1fr 1fr;
 
                     >.chart5-1 {
                         grid-area: sec1;
@@ -359,9 +386,22 @@
                     }
                 }
 
-                .chart-pie3d {
+                .chart6-wrapper {
+                    height: 100%;
+                    .pxToRem(margin, 10);
                     display: flex;
-                    position: relative;
+                    flex-direction: row;
+
+                    .chart6-1 {
+                        flex: 1;
+
+                        .pxToRem(margin-bottom, 10);
+                    }
+
+                    .chart6-2 {
+                        flex: 1;
+                        .pxToRem(margin-bottom, 10);
+                    }
                 }
             }
 

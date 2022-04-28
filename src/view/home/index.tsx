@@ -7,8 +7,9 @@ import Chart4 from './components/Chart4'
 import MapChart from './components/MapChart'
 import TableChart from './components/TableChart'
 import Footer from './components/Footer'
-import ChartWrapper from './components/ChartWrapper'
 import Chart5 from './components/Chart5'
+import Chart6 from './components/Chart6'
+import ChartWrapper from './components/ChartWrapper'
 
 const Home = () => {
   return (
@@ -28,9 +29,7 @@ const Home = () => {
         </section>
         <section className="col3">
           <Chart5 />
-          <ChartWrapper chartClassName="chart" title="Chart6 Title">
-            <></>
-          </ChartWrapper>
+          <Chart6 />
           <ChartWrapper chartClassName="chart" title="Chart7 Title">
             <></>
           </ChartWrapper>
