@@ -80,16 +80,14 @@ const MapChart = () => {
             },
           },
           itemStyle: {
-            normal: {
-              opacity: 0.6,
-              areaColor: '#082243',
-              borderColor: '#39B3ED',
-              borderWidth: 2,
-              shadowBlur: 2,
-              shadowColor: 'black',
-              shadowOffsetX: 5,
-              shadowOffsetY: 5,
-            },
+            opacity: 0.6,
+            areaColor: '#082243',
+            borderColor: '#39B3ED',
+            borderWidth: 0.5,
+            shadowBlur: 2,
+            shadowColor: 'black',
+            shadowOffsetX: 5,
+            shadowOffsetY: 5,
             emphasis: {
               areaColor: {
                 type: 'linear',
