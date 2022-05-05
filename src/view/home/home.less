@@ -413,14 +413,33 @@
 
                 .chart-title {
                     position: absolute;
-                    color: whitesmoke;
                     .pxToRem(top, -12);
+                    color: whitesmoke;
                     font-weight: bold;
 
                     .chart-title-icon {
                         .pxToRem(width, 20);
                         .pxToRem(margin-right, 10)
                     }
+                }
+
+                .counter {
+                    position: absolute;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-family: 'ShuZiGuan';
+                    .pxToRem(font-size, 50);
+                    color: #fac858;
+                }
+
+                #counter1 {
+                    .counter;
+                    top: 40%;
+                }
+
+                #counter2 {
+                    .counter;
+                    top: 65%;
                 }
 
             }
